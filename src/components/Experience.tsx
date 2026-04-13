@@ -3,6 +3,13 @@ import './Experience.css'
 const Experience = () => {
   const experiences = [
     {
+      title: 'Co-Founder',
+      company: 'Plated',
+      date: 'January 2026 - Present',
+      description: 'Co-founded a recipe sharing social media app',
+      logo: '/plated.jpeg'
+    },
+    {
       title: "Software Development Engineering Intern",
       company: "Amazon",
       date: "May 2025 – Aug 2025",
