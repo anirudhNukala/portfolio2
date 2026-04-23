@@ -7,6 +7,7 @@ const Experience = () => {
       company: 'Plated',
       date: 'January 2026 - Present',
       description: 'Co-founded a recipe sharing social media app',
+      link: 'https://www.cookwithplated.com',
       logo: '/plated.jpeg'
     },
     {
@@ -57,23 +58,39 @@ const Experience = () => {
     <section id="experience">
       <h2>Work Experience</h2>
       <div className="experience-list">
-        {experiences.map((exp, index) => (
-          <div key={index} className="experience-item">
-            <div className="exp-content">
-              <img src={exp.logo} alt={`${exp.company} logo`} className="exp-logo" />
-              <div className="exp-details">
-                <div className="exp-header">
-                  <div className="exp-info">
-                    <h3 className="exp-title">{exp.title}</h3>
-                    <span className="exp-company">{exp.company}</span>
+        {experiences.map((exp, index) => {
+          const content = (
+            <div className={`experience-item ${exp.link ? 'clickable' : ''}`}>
+              <div className="exp-content">
+                <img src={exp.logo} alt={`${exp.company} logo`} className="exp-logo" />
+                <div className="exp-details">
+                  <div className="exp-header">
+                    <div className="exp-info">
+                      <h3 className="exp-title">{exp.title}</h3>
+                      <span className="exp-company">{exp.company}</span>
+                    </div>
+                    <span className="exp-date">{exp.date}</span>
                   </div>
-                  <span className="exp-date">{exp.date}</span>
+                  <p className="exp-description">{exp.description}</p>
                 </div>
-                <p className="exp-description">{exp.description}</p>
               </div>
             </div>
-          </div>
-        ))}
+          )
+
+          return exp.link ? (
+            <a
+              key={index}
+              href={exp.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              {content}
+            </a>
+          ) : (
+            <div key={index}>{content}</div>
+          )
+        })}
       </div>
     </section>
   )

@@ -4,6 +4,11 @@
   gap: 20px;
 }
 
+.experience-item.clickable {
+  cursor: pointer;
+}
+
+
 .experience-item {
   padding: 24px;
   background: var(--bg-secondary);
